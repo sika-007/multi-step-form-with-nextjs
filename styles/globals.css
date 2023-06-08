@@ -2,26 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.add-desktop-bg-image {
+  background-image: url("../public/assets/images/bg-sidebar-desktop.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.add-mobile-bg-image {
+  background-image: url("../public/assets/images/bg-sidebar-mobile.svg");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.styled-button {
+  @apply bg-primary px-7 py-4 rounded-full text-gray-200 font-bold hover:scale-105 transition-all hover:border-primary border border-primary hover:bg-gray-200 hover:text-primary
 }
