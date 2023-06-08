@@ -16,7 +16,7 @@ const Navigation:React.FC = ():JSX.Element => {
 
 
   return (
-    <div className='py-16'>
+    <div className='px-2 py-10 flex flex-wrap justify-start sm:justify-center md:block'>
       {stepItems} 
     </div>
   )

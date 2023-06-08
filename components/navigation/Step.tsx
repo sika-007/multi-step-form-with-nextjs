@@ -7,7 +7,7 @@ interface StepProps {
 
 const Step: React.FC<StepProps> = ({step, index}): JSX.Element => {
   return (
-    <div className='flex items-center gap-3 mb-5 pl-14 pr-28'>
+    <div className='flex items-center gap-3 mb-5 pl-12 pr-24'>
       <div className='border border-gray-200 rounded-full w-10 h-10 flex justify-center items-center'>
         <span className='text-gray-200'>{index}</span>
       </div>
