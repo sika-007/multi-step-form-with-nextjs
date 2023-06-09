@@ -1,12 +1,7 @@
 import React from 'react'
+import { Addon } from '@/services/models'
 
-interface AddonProps {
-	name: string
-	title: string
-	description: string
-	isSelected: boolean
-	billing: number
-}
+type AddonProps = Addon
 
 const AddonInput: React.FC<AddonProps> = () => {
 	return (
@@ -16,7 +11,6 @@ const AddonInput: React.FC<AddonProps> = () => {
 				<h4 className='text-lg font-bold text-primary'>Online Service</h4>
 				<p className="text-gray-500">Access to multiplayer games</p>
 			</div>
-
 		</div>
 	)
 }

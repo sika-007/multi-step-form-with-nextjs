@@ -1,20 +1,9 @@
 import React from 'react'
+import { Plan } from '@/services/models'
 
-interface Billing {
-	monthly: number
-	yearly: number
-}
+type PlanProps = Plan
 
-interface PlanProps {
-	title: string
-	billing: Billing
-	isSelected: boolean
-
-	// This should be a state defined on the parent component. The implementation of this may end up looking different.
-	showYearly: boolean
-}
-
-const Plan: React.FC<PlanProps> = ({ title, billing, isSelected, showYearly }) => {
+const Plan: React.FC<PlanProps> = ({ title, billing, isSelected }) => {
 	return (
 		<div className='border-primary border-2 rounded-lg p-10 flex-wrap hover:cursor-pointer'>
 			<h4 className='text-lg font-bold text-primary'>Arcade</h4>
