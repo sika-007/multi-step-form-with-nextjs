@@ -1,17 +1,26 @@
 import React from 'react'
 import Step from './Step'
 
-const Navigation:React.FC = ():JSX.Element => {
+interface NavigationProps {
+  activeLink: string
+}
 
-  const stepNames: string[] = [
-    "Your Info",
-    "Select Plan",
-    "Add-Ons",
-    "Summary"
+export interface Steps {
+  name: string
+  relLink: string
+}
+
+const Navigation:React.FC<NavigationProps> = ({ activeLink }):JSX.Element => {
+
+  const steps: Steps[] = [
+    {name: "Your Info", relLink: "info"},
+    {name: "Select Plan", relLink: "plan"},
+    {name: "Add-Ons", relLink: "addons"},
+    {name: "Summary", relLink: "summary"}
   ]
 
-  const stepItems: React.ReactNode[] = stepNames.map((step: string, index: number) => (
-    <Step step={step} index={index + 1} />
+  const stepItems: React.ReactNode[] = steps.map((step: Steps, index: number) => (
+    <Step activeLink={activeLink} key={index} step={step} index={index + 1} />
   ))
 
 
