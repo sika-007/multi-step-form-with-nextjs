@@ -17,5 +17,5 @@
 }
 
 .styled-button {
-  @apply bg-primary px-7 py-4 rounded-full text-gray-200 font-bold hover:scale-105 transition-all hover:border-primary border border-primary hover:bg-gray-200 hover:text-primary
+  @apply bg-primary px-7 py-4 rounded-full text-gray-200 font-bold hover:scale-105 transition-all hover:border-primary border-2 border-primary hover:bg-green-200 hover:text-primary
 }
