@@ -3,6 +3,7 @@ import { ActiveLinks } from '@/components/Layout'
 import { UserDataContext } from '@/services/context'
 import Head from 'next/head'
 import Link from 'next/link'
+import Router from 'next/router'
 import { useContext, useEffect, useState } from 'react'
 
 interface Props {
@@ -11,7 +12,7 @@ interface Props {
 
 const summary = ({ setActiveLink }: Props) => {
 
-    const { state } = useContext(UserDataContext)
+    const { state, dispatch } = useContext(UserDataContext)
     const [successMessage, setSuccessMessage] = useState<JSX.Element>(<></>)
 
     useEffect(() => {
@@ -65,6 +66,13 @@ const summary = ({ setActiveLink }: Props) => {
                 setSuccessMessage(<p className='mt-2 text-primary font-bold'>{response.message}!</p>)
                 setTimeout(() => {
                     setSuccessMessage(<></>)
+                    Router.push("/")
+                    dispatch && dispatch({ type: "reset" })
+                }, 5000)
+            } else {
+                setSuccessMessage(<p className='mt-2 text-red-600 font-bold'>Please go back and provide your personal details</p>)
+                setTimeout(() => {
+                    setSuccessMessage(<></>)
                 }, 5000)
             }
         } catch (error) {
@@ -80,8 +88,8 @@ const summary = ({ setActiveLink }: Props) => {
     return (
         <div>
             <Head>
-				<title>Details - Summary</title>
-			</Head>
+                <title>Details - Summary</title>
+            </Head>
             <Header title='Finishing up' description='Double-check to make sure everything looks OK before confirming' />
             <div className='bg-green-300 p-7 rounded-xl'>
                 <div>

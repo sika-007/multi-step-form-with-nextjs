@@ -17,6 +17,8 @@ export const dataReducer = (state: Data, action: Action): Data => {
 			return {...state, addons: state.addons.map((addon) => (
 				action.payload === addon.name ? {...addon, isSelected: !addon.isSelected} : addon
 			))}
+		case "reset":
+			return data
 		default:
 			return { ...state }
 	}

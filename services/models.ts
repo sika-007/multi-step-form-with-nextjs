@@ -55,3 +55,4 @@ export type Action =
     | {type: "setTelephone", payload: string }
     | {type: "choosePlan", payload: number }
     | {type: "selectAddons", payload: string }
+    | {type: "reset"}
