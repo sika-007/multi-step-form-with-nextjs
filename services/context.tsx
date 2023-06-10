@@ -8,16 +8,16 @@ interface ContextProps {
 }
 
 interface ContextObjects {
-	state: Data;
-	dispatch: Dispatch<Action>
+	state?: Data;
+	dispatch?: Dispatch<Action>
 }
 
-export const UserDataContext = createContext({})
+export const UserDataContext = createContext<ContextObjects>({})
 
 
-const ContextProvider = ({ children }: ContextProps): JSX.Element => {
+const ContextProvider = ({ children }: ContextProps) => {
 
-	const [state, dispatch] = useReducer(dataReducer, {...data})
+	const [state, dispatch] = useReducer(dataReducer, data)
 
 	const contextObjects: ContextObjects = {
 		state,
