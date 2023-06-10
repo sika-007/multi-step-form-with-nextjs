@@ -16,8 +16,6 @@ const Layout = ({ children }: LayoutProps) => {
 
 	const [activeLink, setActiveLink] = useState<string>(ActiveLinks.INFO)
 
-	console.log(activeLink)
-
 	return (
 		<div className='relative bg-green-200 flex flex-col min-h-screen md:gap-4 md:flex-row'>
 			<div className='add-mobile-bg-image md:add-desktop-bg-image md:ml-4 md:my-4 md:rounded-lg'>

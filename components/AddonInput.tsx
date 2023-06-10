@@ -1,16 +1,14 @@
 import React from 'react'
-import { Addon } from '@/services/models'
+import { AddonProps } from '@/services/models'
 
-type AddonProps = Addon
-
-const AddonInput: React.FC<AddonProps> = () => {
+const AddonInput: React.FC<AddonProps> = ({name, title, description, isSelected, billing, dispatch}) => {
 	return (
-		<div className='flex items-center gap-5 border-2 border-primary p-5 rounded-xl max-w-md mt-4'>
-			<input type="checkbox" name=""  />
+		<div onClick={() => dispatch && dispatch({type: "selectAddons", payload: name})} className={`flex items-center transition-all cursor-pointer gap-5 border-2 ${isSelected ? "scale-105 bg-primary" : ""} border-primary p-5 rounded-xl max-w-md mt-4`}>
 			<div className='flex flex-col'>
-				<h4 className='text-lg font-bold text-primary'>Online Service</h4>
-				<p className="text-gray-500">Access to multiplayer games</p>
+				<h4 className={`text-lg font-bold ${isSelected ? "text-green-200" : "text-primary"}`}>{title}</h4>
+				<p className={isSelected ? "text-gray-200" : "text-gray-500"}>{description}</p>
 			</div>
+			<p className={`ml-auto ${isSelected ? "text-gray-200" : "text-gray-500"}`}>${billing}/yr</p>
 		</div>
 	)
 }
